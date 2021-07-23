@@ -1,0 +1,192 @@
+{
+    "contractName": "FuturePerpetual",
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "trader",
+            "type": "address"
+          }
+        ],
+        "name": "queryNonce",
+        "outputs": [
+          {
+            "internalType": "uint64",
+            "name": "",
+            "type": "uint64"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+              {
+                    "internalType": "address",
+                    "name": "_holder",
+                    "type": "address"
+              },
+              {
+                    "internalType": "bytes32",
+                    "name": "symbol",
+                    "type": "bytes32"
+              }
+        ],
+        "name": "queryPosition",
+        "outputs": [
+              {
+                    "components": [
+                          {
+                                "internalType": "uint104",
+                                "name": "amount",
+                                "type": "uint104"
+                          },
+                          {
+                                "internalType": "uint104",
+                                "name": "price",
+                                "type": "uint104"
+                          },
+                          {
+                                "internalType": "uint40",
+                                "name": "modifyBlock",
+                                "type": "uint40"
+                          },
+                          {
+                                "internalType": "int8",
+                                "name": "direction",
+                                "type": "int8"
+                          }
+                    ],
+                    "internalType": "struct FPTypes.Position",
+                    "name": "",
+                    "type": "tuple"
+              }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+              {
+                    "internalType": "address",
+                    "name": "_holder",
+                    "type": "address"
+              },
+              {
+                    "internalType": "bytes32",
+                    "name": "_symbol",
+                    "type": "bytes32"
+              }
+        ],
+        "name": "queryHolderInfo",
+        "outputs": [
+              {
+                    "internalType": "uint256",
+                    "name": "balance",
+                    "type": "uint256"
+              },
+              {
+                    "internalType": "uint256",
+                    "name": "marginRatio",
+                    "type": "uint256"
+              },
+              {
+                    "internalType": "int256",
+                    "name": "profit",
+                    "type": "int256"
+              },
+              {
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+              }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "_symbol",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int8",
+            "name": "_direction",
+            "type": "int8"
+          },
+          {
+            "internalType": "bool",
+            "name": "_isForOpen",
+            "type": "bool"
+          }
+        ],
+        "name": "queryPositionFeeAndRatio",
+        "outputs": [
+          {
+            "internalType": "int256",
+            "name": "fee",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "ratio",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "oldratio",
+            "type": "int256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "symbol",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "int128",
+            "name": "index",
+            "type": "int128"
+          }
+        ],
+        "name": "queryInterestRatio",
+        "outputs": [
+          {
+            "internalType": "int256",
+            "name": "longRatio",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "shortRatio",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint128",
+            "name": "currentIndex",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint128",
+            "name": "updatedIndex",
+            "type": "uint128"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+}
