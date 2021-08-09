@@ -11,7 +11,9 @@ class CloseOrder {
         acceptablePrice,
         deadline,
         maker,
-        gasLevel
+        gasLevel,
+        couponId,
+        couponAmount
     ) {
         this.symbol = symbol;
         this.amount = amount;
@@ -19,6 +21,8 @@ class CloseOrder {
         this.deadline = deadline;
         this.maker = maker;
         this.gasLevel = gasLevel;
+        this.couponId = couponId;
+        this.couponAmount = couponAmount;
     }
 
     async hash( web3_chain ) {
@@ -31,7 +35,9 @@ class CloseOrder {
                     "uint256",
                     "uint256",
                     "address",
-                    "uint8"
+                    "uint8",
+                    "uint256",
+                    "uint256"
                 ],
                 [
                     CLOSEORDER_TYPEHASH,
@@ -40,7 +46,9 @@ class CloseOrder {
                     this.acceptablePrice,
                     this.deadline,
                     this.maker,
-                    this.gasLevel
+                    this.gasLevel,
+                    this.couponId,
+                    this.couponAmount
                 ]
             )
         );
@@ -75,6 +83,8 @@ class CloseOrder {
             this.deadline,
             this.maker,
             this.gasLevel,
+            this.couponId,
+            this.couponAmount,
             v,
             r,
             s,

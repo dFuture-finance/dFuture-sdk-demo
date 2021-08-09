@@ -16,7 +16,9 @@ class OpenOrder {
         withDiscount,
         deadline,
         maker,
-        gasLevel
+        gasLevel,
+        couponId,
+        couponAmount
     ) {
         this.symbol = symbol;
         this.amount = amount;
@@ -28,6 +30,8 @@ class OpenOrder {
         this.deadline = deadline;
         this.maker = maker;
         this.gasLevel = gasLevel;
+        this.couponId = couponId;
+        this.couponAmount = couponAmount;
     }
 
     async hash(web3_rops) {
@@ -45,7 +49,9 @@ class OpenOrder {
                     "bool",
                     "uint256",
                     "address",
-                    "uint8"
+                    "uint8",
+                    "uint256",
+                    "uint256"
                 ],
                 [
                     OPENORDER_TYPEHASH,
@@ -58,7 +64,9 @@ class OpenOrder {
                     this.withDiscount,
                     this.deadline,
                     this.maker,
-                    this.gasLevel
+                    this.gasLevel,
+                    this.couponId,
+                    this.couponAmount
                 ]
             )
         );
@@ -108,6 +116,8 @@ class OpenOrder {
             this.deadline,
             this.maker,
             this.gasLevel,
+            this.couponId,
+            this.couponAmount,
             v,
             r,
             s,

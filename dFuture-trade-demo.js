@@ -158,7 +158,9 @@ async function openPositionWithPrice() {
           config.WITH_DISCOUNT,
           deadline,
           ordermaker,
-          config.GAS_LEVEL
+          config.GAS_LEVEL,
+          1233,
+          1
         );
         let args = await openOrder.toArgs(FUTURE_ADDRESS, makerPrivateKey, web3_rops, config.CHAIN_ID);
         console.log("args:",args);
@@ -173,9 +175,11 @@ async function openPositionWithPrice() {
             "deadline": args[7],
             "maker": args[8],
             "gasLevel": args[9],
-            "r": args[11],
-            "s": args[12],
-            "v": args[10]
+            "couponId": args[10],
+            "couponAmount": args[11],
+            "r": args[13],
+            "s": args[14],
+            "v": args[12]
         };
         await sendRpcTrx(config.OpenPositionUrl, params);
     } catch (error) {
@@ -198,7 +202,9 @@ async function closePositionWithPrice(){
             0,
             deadline,
             ordermaker,
-            config.GAS_LEVEL
+            config.GAS_LEVEL,
+            1233,
+            1
         );
         let args = await closeOrder.toArgs(FUTURE_ADDRESS, makerPrivateKey, web3_rops, config.CHAIN_ID);
         console.log("args:",args);
