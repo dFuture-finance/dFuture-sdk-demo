@@ -90,7 +90,10 @@ def getClosePara(user, symbol, amount, ac, deadline, gasfee):
         'acceptablePrice': ac,
         'deadline': deadline,
         'maker': user,
-        'gasLevel': gasfee
+        'gasLevel': gasfee,
+        'couponId': '24273',
+        'couponAmount': '1'
+
     }
 
     return para
@@ -107,7 +110,9 @@ def getOpenPara(user, symbol, amount, direction, ac, ap, deadline, gasfee):
             'withDiscount': True,
             'deadline': deadline,
             'maker': user,
-            'gasLevel': gasfee
+            'gasLevel': gasfee,
+            'couponId': '24271',
+            'couponAmount': '1'
         }
     return para
 

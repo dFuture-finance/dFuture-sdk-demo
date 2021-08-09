@@ -21,7 +21,9 @@ data = {
             { "name": 'withDiscount', "type": 'bool' },
             { "name": 'deadline', "type": 'uint256' },
             { "name": 'maker', "type": 'address' },
-            { "name": 'gasLevel', "type": 'uint8' }
+            { "name": 'gasLevel', "type": 'uint8' },
+            { "name": 'couponId', "type": 'uint256' },
+            { "name": 'couponAmount', "type": 'uint256' }
         ],
     },
     "primaryType": 'OpenOrder',
