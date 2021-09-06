@@ -1656,9 +1656,14 @@
                         "internalType": "bool",
                         "name": "_isForOpen",
                         "type": "bool"
+                  },
+                  {
+                        "internalType": "uint256[]",
+                        "name": "coupons",
+                        "type": "uint256[]"
                   }
             ],
-            "name": "queryPositionFeeAndRatio",
+            "name": "queryPositionFeeAndRatioWithCoupon",
             "outputs": [
                   {
                         "internalType": "int256",

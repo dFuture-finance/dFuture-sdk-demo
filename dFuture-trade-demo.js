@@ -3,7 +3,6 @@ const fs = require('fs');
 const EthereumTx = require('ethereumjs-tx');
 const OpenOrder = require("./offline-open-order");
 const CloseOrder = require("./offline-close-order");
-const sleep = require("sleep");
 const { utils } = require('ethers');
 var crypto = require('crypto');
 const axios = require("axios");
@@ -49,6 +48,15 @@ let last_openposition_status = true;
 let nonce_number = 0;
 let lastInitWeb3Time = 0;
 var BN = Web3.utils.BN;
+
+
+async function delay(timeout) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, timeout);
+  });
+}
 /**
  * 初始web3和合约
  */
@@ -129,7 +137,7 @@ async function deadlineOfOrderMaker(nonce_increase) {
                     console.log("retry query hash:",res["data"]["data"]["txHash"]," exec success ");
                     break;
                 }
-                sleep.msleep(1000);
+                await delay(1000);
             }
         }
 
@@ -214,10 +222,12 @@ async function closePositionWithPrice(){
             "deadline": args[3],
             "gasLevel": args[5],
             "maker": args[4],
-            "r": args[7],
-            "s": args[8],
+            "r": args[9],
+            "s": args[10],
             "symbol": args[0],
-            "v": args[6]
+	    "couponId": args[6],
+	    "couponAmount": args[7],
+            "v": args[8]
         };
         await sendRpcTrx(config.ClosePositionUrl, params);
     } catch (error) {
@@ -267,12 +277,12 @@ async function dFutureDemo() {
         //第一次开仓需要approve操作
         await generateApproveTx();
         //查询开仓config.handleAmount手手续费
-        let feeAndRatio = await future_contract.methods.queryPositionFeeAndRatio(symbol(config.symbol),config.handleAmount ,1, true).call();
+        let feeAndRatio = await future_contract.methods.queryPositionFeeAndRatioWithCoupon(symbol(config.symbol),config.handleAmount ,1, true, coupons = []).call();
         console.log("account:",config.ACCOUNT_ADDRESS,"queryPositionFeeAndRatio:",feeAndRatio);
 
         //开仓
         await openPositionWithPrice();
-        sleep.msleep(3000);
+        await delay(3000);
         //获取用户持仓
         let PositionInfo = await future_contract.methods.queryPosition(config.ACCOUNT_ADDRESS,symbol(config.symbol)).call();
         console.log("account:",config.ACCOUNT_ADDRESS,"symbol:",config.symbol,"queryPosition:",PositionInfo);

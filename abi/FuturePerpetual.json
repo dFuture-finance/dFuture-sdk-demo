@@ -107,44 +107,49 @@
       },
       {
         "inputs": [
-          {
-            "internalType": "bytes32",
-            "name": "_symbol",
-            "type": "bytes32"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_amount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "int8",
-            "name": "_direction",
-            "type": "int8"
-          },
-          {
-            "internalType": "bool",
-            "name": "_isForOpen",
-            "type": "bool"
-          }
+              {
+                    "internalType": "bytes32",
+                    "name": "_symbol",
+                    "type": "bytes32"
+              },
+              {
+                    "internalType": "uint256",
+                    "name": "_amount",
+                    "type": "uint256"
+              },
+              {
+                    "internalType": "int8",
+                    "name": "_direction",
+                    "type": "int8"
+              },
+              {
+                    "internalType": "bool",
+                    "name": "_isForOpen",
+                    "type": "bool"
+              },
+              {
+                    "internalType": "uint256[]",
+                    "name": "coupons",
+                    "type": "uint256[]"
+              }
         ],
-        "name": "queryPositionFeeAndRatio",
+        "name": "queryPositionFeeAndRatioWithCoupon",
         "outputs": [
-          {
-            "internalType": "int256",
-            "name": "fee",
-            "type": "int256"
-          },
-          {
-            "internalType": "int256",
-            "name": "ratio",
-            "type": "int256"
-          },
-          {
-            "internalType": "int256",
-            "name": "oldratio",
-            "type": "int256"
-          }
+              {
+                    "internalType": "int256",
+                    "name": "fee",
+                    "type": "int256"
+              },
+              {
+                    "internalType": "int256",
+                    "name": "ratio",
+                    "type": "int256"
+              },
+              {
+                    "internalType": "int256",
+                    "name": "oldratio",
+                    "type": "int256"
+              }
         ],
         "stateMutability": "view",
         "type": "function"

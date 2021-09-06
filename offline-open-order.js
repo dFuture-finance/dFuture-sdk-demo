@@ -3,7 +3,7 @@ const { keccak256 } = require("@ethersproject/keccak256");
 const { hexConcat } = require("@ethersproject/bytes");
 const { SigningKey } = require("@ethersproject/signing-key");
 
-const OPENORDER_TYPEHASH = "0xe87416872b44edd404861b2c9fd4150137a52afee7f92f32c8c0545692af057a";
+const OPENORDER_TYPEHASH = "0x065c32912eaba310b6119c784e0bd5263c6dec10c5feec5008fa502a4c5890a6";
 class OpenOrder {
 
     constructor(

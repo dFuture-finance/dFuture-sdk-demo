@@ -3,7 +3,7 @@ const { keccak256 } = require("@ethersproject/keccak256");
 const { hexConcat } = require("@ethersproject/bytes");
 const { SigningKey } = require("@ethersproject/signing-key");
 
-const CLOSEORDER_TYPEHASH = "0x48fb8cdaeeda15258a71c70d3a317a5244f9ee2a7974763405e0b86478e4cf4a";
+const CLOSEORDER_TYPEHASH = "0x3c4ad2ad8e3797c83210a6a0f3c1d7275ed32acdeb5c857e3d7f0b2db3128663";
 class CloseOrder {
     constructor(
         symbol,
